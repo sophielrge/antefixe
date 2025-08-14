@@ -1,0 +1,10 @@
+@startuml
+
+interface Worker {
+  + number id
+  + string firstName
+  + string lastName
+  + string job?
+}
+
+@enduml

@@ -1,0 +1,22 @@
+{
+    "actions": {
+        "view": "Voir",
+        "edit": "Modifier",
+        "delete": "Supprimer",
+        "changePassword": "Changer le mot de passe"
+    },
+    "menu":{
+        "company": "Antexife",
+        "workers": "Ouvriers",
+        "constructions": "Chantiers"
+    },
+    "worker": {
+        "title": "Ouvriers",
+        "list":"Liste des ouvriers",
+        "add": "Ajouter un ouvrier"
+    },
+    "constructions": {
+        "title": "Chantiers",
+        "list":"Liste des chantiers"
+    }
+}
