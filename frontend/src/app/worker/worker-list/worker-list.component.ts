@@ -1,14 +1,16 @@
 
-import { Component } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { Component, inject } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzModalService } from 'ng-zorro-antd/modal';
 
 import { Worker } from '../../../models/types';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { CommonModule } from '@angular/common';
+import { WorkerFormComponent } from '../worker-form/worker-form.component';
 
 
 @Component({
@@ -23,20 +25,27 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   templateUrl: './worker-list.component.html',
-  styleUrl: './worker-list.component.scss'
+  styleUrls: ['./worker-list.component.scss']
 })
 export class WorkerListComponent {
-workers: Worker[] = [
-    { id: 1, firstName: 'Alice', lastName:'Dupont', job: 'couvreur' },
-    { id: 2, firstName: 'Bob', lastName:'Martin', job: 'maçon' },
+
+  constructor(private modal: NzModalService, private translateService: TranslateService) {}
+
+  workers: Worker[] = [
+    { id: 1, firstName: 'Alice', lastName:'Dupont', job: 'couvreur', age: 18 },
+    { id: 2, firstName: 'Bob', lastName:'Martin', job: 'maçon', age: 25 },
   ];
 
-  // URL de l'image par défaut si pas de photo
-  defaultPhoto: string = 'assets/images/default-worker.png';
-
-  addWorker() {
-    const newId = this.workers.length + 1;
-    this.workers.push({ id: newId, firstName: `New`, lastName: `Worker ${newId}`, job: `Unknown` });
+  openWorkerForm(worker?: Worker) {
+    this.modal.create({
+      nzTitle: worker ? this.translateService.instant('actions.edit') : this.translateService.instant('actions.add'),
+      nzContent: WorkerFormComponent,
+      nzData: {
+        worker: worker
+      },
+      nzFooter: null,
+      nzWidth: 600
+    });
   }
 
   deleteWorker(worker: Worker) {

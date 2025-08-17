@@ -3,7 +3,8 @@
         "view": "Voir",
         "edit": "Modifier",
         "delete": "Supprimer",
-        "changePassword": "Changer le mot de passe"
+        "cancel": "Annuler",
+        "submit": "Valider"
     },
     "menu":{
         "company": "Antexife",
@@ -18,10 +19,12 @@
         "fields": {
             "firstName": "Prénom",
             "lastName": "Nom de famille",
-            "job": "Profession"
+            "job": "Profession",
+            "age": "Âge",
+            "phoneNumber": "Numéro de téléphone"
         }
     },
-    "constructions": {
+    "construction": {
         "title": "Chantiers",
         "list":"Liste des chantiers",
         "fields": {

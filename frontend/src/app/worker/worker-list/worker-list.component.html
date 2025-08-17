@@ -2,9 +2,10 @@
 
 <div class="action-and-button flex ltSm:flex-col justify-between">
 
-    <!-- <a [routerLink]="['/', 'admin', 'users', 'new']" nz-button nzType="primary"
-      >{{ getAddButtonName() }} <nz-icon nzType="down" nzType="plus"
-    /></a> -->
+    <button nz-button nzType="primary" (click)="openWorkerForm()">
+        {{ 'actions.addWorker' | translate }}
+        <nz-icon nzType="plus"></nz-icon>
+    </button>
 
 </div>
 

@@ -5,6 +5,8 @@ interface Worker {
   + string firstName
   + string lastName
   + string job?
+  + string phoneNumber?
+  + number age
 }
 
 interface Construction {

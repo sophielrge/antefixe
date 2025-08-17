@@ -1,1 +1,44 @@
-<p>worker-form works!</p>
+<form [formGroup]="workerForm" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzRequired>{{ 'worker.fields.lasstName' | translate }}</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input nz-input formControlName="lastName" placeholder="Enter last name" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzRequired>{{ 'worker.fields.firstName' | translate }}</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input nz-input formControlName="firstName" placeholder="Enter first name" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzRequired>{{ 'worker.fields.job' | translate }}</nz-form-label>
+     <nz-form-control [nzSpan]="14">
+      <input nz-input formControlName="job" placeholder="Enter first name" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzRequired>{{ 'worker.fields.age' | translate }}</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input nz-input type="number" min='18' formControlName="age" placeholder="Enter age" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6">{{ 'worker.fields.phoneNumber' | translate }}</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input nz-input formControlName="phoneNumber" placeholder="Enter phone number" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+      <button nz-button nzType="primary" type="submit">Submit</button>
+      <button nz-button nzType="default" type="button" (click)="cancel()">Cancel</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+

@@ -2,6 +2,7 @@
 
 /* eslint-disable */
 export interface Worker {
+  age: number;
   firstName: string;
   id: number;
   /**
@@ -9,6 +10,10 @@ export interface Worker {
    */
   job?: string;
   lastName: string;
+  /**
+   *  @nullable
+   */
+  phoneNumber?: string;
 }
 
 export interface Construction {
