@@ -13,10 +13,21 @@
     "worker": {
         "title": "Ouvriers",
         "list":"Liste des ouvriers",
-        "add": "Ajouter un ouvrier"
+        "add": "Ajouter un ouvrier",
+        "plus": "Options",
+        "fields": {
+            "firstName": "Prénom",
+            "lastName": "Nom de famille",
+            "job": "Profession"
+        }
     },
     "constructions": {
         "title": "Chantiers",
-        "list":"Liste des chantiers"
+        "list":"Liste des chantiers",
+        "fields": {
+            "name": "Nom",
+            "address": "Adresse",
+            "endDate": "Date de fin"
+        }
     }
 }

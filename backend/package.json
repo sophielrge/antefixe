@@ -4,7 +4,7 @@
    "main": "src/index.js",
    "scripts": {
       "start": "node src/index.js",
-      "dev": "ts-node-dev src/index.ts",
+      "dev": "ts-node src/index.ts",
       "serve": "npm run build && node src/index.js",
       "generate:models": "ts-node ./scripts/generate-models.ts",
       "build": "npm run generate:models && tsc"

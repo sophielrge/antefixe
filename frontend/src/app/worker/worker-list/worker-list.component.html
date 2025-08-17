@@ -2,80 +2,74 @@
 
 <div class="action-and-button flex ltSm:flex-col justify-between">
 
-    <a [routerLink]="['/', 'admin', 'users', 'new']" nz-button nzType="primary"
+    <!-- <a [routerLink]="['/', 'admin', 'users', 'new']" nz-button nzType="primary"
       >{{ getAddButtonName() }} <nz-icon nzType="down" nzType="plus"
-    /></a>
+    /></a> -->
 
 </div>
 
 <nz-table
   #table
-  [nzData]="displayedData"
   [nzFrontPagination]="false"
-  [nzTotal]="total"
-  [(nzPageSize)]="pageSize"
-  [nzShowSizeChanger]="!displayAll"
-  [nzPageSizeOptions]="paginationOptions"
-  [nzPaginationType]="paginationType"
-  [(nzPageIndex)]="pageIndex"
-  [nzLoading]="isLoading"
-  [nzShowTotal]="totalTemplate"
 >
   <thead>
     <tr>
       <th
         nzColumnKey="lastName"
       >
-        {{ 'worker.lastName' | translate }}
+        {{ 'worker.fields.lastName' | translate }}
       </th>
       <th
         nzColumnKey="firstName"
       >
-        {{ 'worker.firstName' | translate }}
+        {{ 'worker.fields.firstName' | translate }}
       </th>
 
       <th
         nzColumnKey="job"
       >
-        {{ 'worker.job' | translate }}
+        {{ 'worker.fields.job' | translate }}
+      </th>
+
+      <th
+        nzColumnKey="plus"
+      >
+        {{ 'worker.fields.plus' | translate }}
       </th>
     </tr>
   </thead>
 
   <tbody>
-    @for (worker of workers; track $index) {
+  @for (worker of workers; track $index) {
+    <tr>
       <td>{{ worker.lastName }}</td>
       <td>{{ worker.firstName }}</td>
       <td>{{ worker.job }}</td>
       <td>
-        <button nz-button nzShape="circle" nz-dropdown [nzDropdownMenu]="actions">
-            <nz-icon nzType="down" nzType="more" />
+        <button nz-button nzShape="circle" nz-dropdown [nzDropdownMenu]="menu">
+          <nz-icon nzType="more" nzTheme="outline"></nz-icon>
         </button>
-        <nz-dropdown-menu #actions="nzDropdownMenu">
-            <ul nz-menu>
-                <li nz-menu-item>
-                <a [routerLink]="['/', 'admin', 'users', user.id]">
-                    <nz-icon nzType="down" nzType="info-circle" />
-                    {{ 'actions.view' | translate }}
-                </a>
-                </li>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item (click)="viewWorker(worker)">
+              <nz-icon nzType="info-circle" nzTheme="outline"></nz-icon>
+              {{ 'actions.view' | translate }}
+            </li>
 
-                <li nz-menu-item>
-                <a [routerLink]="['/', 'workers', 'edit', worker.id]">
-                    <nz-icon nzType="down" nzType="edit" />
-                    {{ 'actions.edit' | translate }}
-                </a>
-                </li>
-            
-                <li nz-menu-item (click)="deleteWorker(worker)">
-                <nz-icon nzType="down" nzType="delete" nzTheme="outline" />
-                {{ 'actions.delete' | translate }}
-                </li>
-            
-            </ul>
+            <li nz-menu-item (click)="editWorker(worker)">
+              <nz-icon nzType="edit" nzTheme="outline"></nz-icon>
+              {{ 'actions.edit' | translate }}
+            </li>
+
+            <li nz-menu-item (click)="deleteWorker(worker)">
+              <nz-icon nzType="delete" nzTheme="outline"></nz-icon>
+              {{ 'actions.delete' | translate }}
+            </li>
+          </ul>
         </nz-dropdown-menu>
-        </td>
-    }
-  </tbody>
+      </td>
+    </tr>
+  }
+</tbody>
 </nz-table>
 

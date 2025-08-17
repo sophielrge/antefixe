@@ -7,4 +7,11 @@ interface Worker {
   + string job?
 }
 
+interface Construction {
+  + number id
+  + string name?
+  + string address
+  + Date endDate?
+}
+
 @enduml

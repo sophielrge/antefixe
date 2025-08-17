@@ -3,10 +3,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/app",
-    "types": [
-      "node"
-    ]
+    "module": "esnext",
+    "target": "es2020",
+    "moduleResolution": "node",
+    "types": []
   },
   "files": [
     "src/main.ts",

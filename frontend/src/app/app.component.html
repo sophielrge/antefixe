@@ -1,5 +1,6 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar"
+  <nz-sider
+    class="menu-sidebar"
     nzCollapsible
     nzWidth="256px"
     nzBreakpoint="md"
@@ -8,23 +9,21 @@
   >
     <div class="sidebar-logo">
       <a>
-        <img src="./assets/img/antefixe-logo.jpg" alt="logo">
+        <img src="assets/img/antefixe-logo.jpg" alt="logo" />
         <h1>{{ 'menu.company' | translate }}</h1>
       </a>
     </div>
+
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <ul>
-        <li nz-menu-item nzMatchRouter>
-          <a routerLink="/workers-list">{{ 'menu.workers' | translate }}</a>
-        </li>
-      </ul>
-      <ul>
-        <li nz-menu-item nzMatchRouter>
-          <a routerLink="/constructions-list">{{ 'menu.constructions' | translate }}</a>
-        </li>
-      </ul>
+      <li nz-menu-item nzMatchRouter>
+        <a routerLink="/workers-list">{{ 'menu.workers' | translate }}</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a routerLink="/constructions-list">{{ 'menu.constructions' | translate }}</a>
+      </li>
     </ul>
   </nz-sider>
+
   <nz-layout>
     <nz-header>
       <div class="app-header">
@@ -33,6 +32,7 @@
         </span>
       </div>
     </nz-header>
+
     <nz-content>
       <div class="inner-content">
         <router-outlet></router-outlet>

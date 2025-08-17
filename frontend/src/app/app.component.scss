@@ -78,3 +78,344 @@ nz-content {
   background: #fff;
   height: 100%;
 }
+
+
+* {
+  font-family: var(--app-font-family);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: var(--app-color-text);
+}
+
+ol,
+ul {
+  // revert Tailwind changes
+  list-style: disc;
+  padding-left: 40px;
+}
+
+html,
+body,
+app-root,
+hope-root {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-secondary-darken-10);
+}
+
+nz-icon[nzType='more'] {
+  color: var(--app-color-text);
+}
+
+.anticon {
+  vertical-align: 0;
+}
+
+.ant-dropdown-menu .ant-dropdown-menu-item .ant-menu-title-content {
+  white-space: pre-line;
+  width: 100%;
+
+  & > .anticon,
+  & > a > .anticon {
+    margin-right: 0.5rem;
+  }
+
+  & > a {
+    color: var(--app-color-text);
+    margin: -5px -12px;
+    padding: 5px 12px;
+    display: inline-block;
+    width: calc(100% + 24px);
+  }
+
+  & > a:hover {
+    color: var(--app-color-text);
+  }
+}
+.ant-dropdown-menu-submenu-title > .anticon {
+  margin-right: 0.5rem;
+}
+
+nz-icon[nzType='delete'],
+nz-icon[nzType].danger {
+  color: var(--app-color-danger);
+}
+nz-icon[nzType].warning {
+  color: var(--app-color-warning);
+}
+nz-icon[nzType='info-circle'],
+nz-icon[nzType='edit'],
+nz-icon[nzType='lock'],
+nz-icon[nzType].primary {
+  color: var(--app-color-primary);
+}
+
+.ant-card-head-title {
+  display: flex;
+  white-space: pre-wrap;
+}
+.ant-card-extra > :not(:last-child) {
+  margin-right: 1rem;
+}
+
+.ant-descriptions-item {
+  .ant-descriptions-item-label {
+    font-size: 10px;
+    line-height: 22px;
+    white-space: pre-line;
+  }
+  .ant-descriptions-item-content {
+    font-weight: bold;
+    white-space: pre-line;
+    flex-wrap: wrap;
+  }
+}
+
+nz-divider.ant-divider-horizontal {
+  &.ant-divider-with-text,
+  &.ant-divider-with-text-left,
+  &.ant-divider-with-text-right {
+    &::before {
+      top: 10%;
+    }
+    &::after {
+      top: 10%;
+    }
+  }
+}
+
+.ant-form-item {
+  .ant-form-item-label {
+    display: flex;
+    height: 40px;
+    line-height: unset;
+    text-align: left;
+    white-space: pre-line;
+    label {
+      margin: auto 0;
+    }
+  }
+}
+
+body .ant-tabs {
+  .ant-tabs-nav-list .ant-tabs-tab {
+    &,
+    .ant-tabs-tab-btn,
+    a {
+      color: var(--app-color-white);
+      font-weight: bold;
+    }
+    &.ant-tabs-tab-active {
+      &,
+      .ant-tabs-tab-btn,
+      a {
+        color: var(--app-color-primary);
+        font-weight: bold;
+        &:hover {
+          color: var(--app-color-light-primary);
+        }
+      }
+    }
+  }
+}
+
+button {
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+
+.main-actions,
+.action-form-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  & > * {
+    margin-bottom: 1rem;
+  }
+  & > :not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-actions,
+  .action-form-container {
+    &:not(.always-row) {
+      flex-direction: column;
+      & > :not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+      & > a,
+      & > button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.ant-tooltip-inner {
+  white-space: pre-line;
+}
+
+.ant-tag-has-color {
+  font-weight: bold;
+}
+
+hope-layout .tui-editor-contents {
+  font-size: 14px;
+}
+
+nz-form-control label {
+  cursor: pointer;
+  nz-switch {
+    margin-right: 0.5rem;
+  }
+}
+
+.sticky-element {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.toastui-editor-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+}
+
+.sticky-bottom-element {
+  position: sticky;
+  bottom: 0;
+  z-index: 600;
+
+  nz-alert {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.input-group-unit {
+  padding: 6.5px 11px 7.75px;
+  border: 1px solid var(--app-color-border);
+  border-right: none;
+}
+
+.clear-date-range-btn {
+  padding-top: 0.4rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.simple-modal {
+  white-space: pre-line;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+// mimic style for drag and drop
+nz-collapse-panel.cdk-drag {
+  height: fit-content;
+  background-color: var(--app-color-collapse);
+  border: 1px solid var(--app-color-border);
+  .ant-collapse-header {
+    display: flex;
+    padding: 12px 16px;
+    .ant-collapse-extra {
+      margin-left: auto;
+    }
+  }
+}
+
+// FIXME collapse issue after drop => content is displayed even if not active
+.ant-collapse-item:not(.ant-collapse-item-active) {
+  .ant-collapse-content {
+    display: none;
+  }
+}
+
+ngx-extended-pdf-viewer {
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: inline;
+    vertical-align: baseline;
+  }
+}
+
+.alert-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em 0.5em;
+  & > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    &.tags {
+      font-size: 11px;
+    }
+  }
+  .actions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    button[nzShape='circle'] {
+      padding-top: 4px;
+    }
+    & > :not(:first-child) {
+      margin-left: 1em;
+    }
+  }
+
+  nz-collapse[nzGhost] {
+    &.ant-collapse > .ant-collapse-item .ant-collapse-header-text {
+      position: relative;
+      width: 100%;
+      hope-markdown-viewer {
+        position: relative;
+        top: -4px;
+      }
+    }
+    &.ant-collapse > .ant-collapse-item:not(.ant-collapse-item-active) .ant-collapse-header-text {
+      hope-markdown-viewer {
+        display: inline-block;
+        max-height: 36px;
+        width: 100%;
+        overflow: hidden;
+      }
+      p {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+    .ant-collapse-content {
+      display: none;
+    }
+  }
+}

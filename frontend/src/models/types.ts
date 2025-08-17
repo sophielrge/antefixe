@@ -10,3 +10,16 @@ export interface Worker {
   job?: string;
   lastName: string;
 }
+
+export interface Construction {
+  address: string;
+  /**
+   *  @nullable
+   */
+  endDate?: Date;
+  id: number;
+  /**
+   *  @nullable
+   */
+  name?: string;
+}

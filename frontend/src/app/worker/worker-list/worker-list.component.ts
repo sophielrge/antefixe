@@ -5,13 +5,11 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzTableModule } from 'ng-zorro-antd/table';
 
-// Define the Worker type locally if the module is inaccessible
-export interface Worker {
-  id: number;
-  firstName: string;
-  lastName: string;
-  job: string;
-}
+import { Worker } from '../../../models/types';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-worker-list',
@@ -19,7 +17,10 @@ export interface Worker {
     TranslateModule,
     NzTableModule,
     NzIconModule,
-    NzButtonModule
+    NzButtonModule,
+    NzDropDownModule,
+    NzMenuModule,
+    CommonModule
   ],
   templateUrl: './worker-list.component.html',
   styleUrl: './worker-list.component.scss'
@@ -41,4 +42,9 @@ workers: Worker[] = [
   deleteWorker(worker: Worker) {
     this.workers = this.workers.filter(w => w.id !== worker.id);
   }
+
+  viewWorker(worker: Worker) {}
+
+  editWorker(worker: Worker) {}
+
 }

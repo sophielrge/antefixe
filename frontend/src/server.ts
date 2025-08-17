@@ -3,15 +3,22 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderModule } from '@angular/platform-server';
 import { readFileSync } from 'fs';
+import { existsSync } from 'node:fs';
+
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(__dirname, '../browser');
-const indexHtml = readFileSync(resolve(browserDistFolder, 'index.html')).toString();
+let indexHtmlPath = resolve(__dirname, '../.angular/prerender-root/browser/index.html');
 
+if (!existsSync(indexHtmlPath)) {
+  indexHtmlPath = resolve(__dirname, '../browser/index.html'); // fallback si prerender n'existe pas
+}
+
+const indexHtml = readFileSync(indexHtmlPath, 'utf-8');
 const app = express();
 
 /**
- * Serve static files from /browser
+ * Sert les fichiers statiques (uniquement si build fait, sinon vide)
  */
 app.use(
   express.static(browserDistFolder, {
@@ -22,30 +29,21 @@ app.use(
 );
 
 /**
- * Handle all other requests by rendering the Angular application.
- * On Angular 19+, renderModule can être utilisé directement sans module pré-compilé.
+ * SSR : toutes les routes renvoient l'app Angular
  */
-app.get('/**', async (req, res, next) => {
+app.get('*', async (req, res, next) => {
   try {
-    const html = await renderModule(
-      // Ici tu peux mettre ton AppServerModule si tu en crées un plus tard
-      // ou un module inline minimal pour le SSR
-      class {},
-      {
-        document: indexHtml,
-        url: req.url,
-      }
-    );
+    const html = await renderModule(class {}, {
+      document: indexHtml,
+      url: req.url,
+    });
     res.send(html);
   } catch (err) {
     next(err);
   }
 });
 
-
 const port = 4200;
 app.listen(port, () => {
-  console.log(`Node Express server listening on http://localhost:${port}`);
+  console.log(`✅ Server ready on http://localhost:${port}`);
 });
-
-export default app;

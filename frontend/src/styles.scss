@@ -1,1 +1,246 @@
-/* You can add global styles to this file, and also import other style files */
+
+html, body, app-root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  background: #f0f2f5;
+}
+
+.menu-sidebar {
+  .sidebar-logo {
+    text-align: center;
+    padding: 1rem;
+
+    img {
+      max-width: 80%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: white;
+      font-size: 1.2rem;
+      margin: 0.5rem 0 0 0;
+      white-space: nowrap;
+    }
+  }
+}
+
+.app-header {
+  background: #001529;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 1rem;
+
+  .header-trigger {
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+nz-content .inner-content {
+  padding: 1rem;
+  min-height: calc(100vh - 64px);
+  background-color: #f0f2f5;
+}
+
+
+.app-layout {
+  min-height: 100vh;
+
+  .nz-layout {
+    height: 100%;
+
+    .nz-header {
+      background: #fff;
+      padding: 0 16px;
+      line-height: 64px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+
+      .header-trigger {
+        cursor: pointer;
+        font-size: 18px;
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+
+    .nz-content {
+      padding: 24px;
+      background: #f0f2f5;
+      min-height: calc(100vh - 64px);
+    }
+  }
+
+  .menu-sidebar {
+    background: #001529;
+    height: 100%;
+    color: #fff;
+
+    .sidebar-logo {
+      text-align: center;
+      padding: 16px 0;
+
+      img {
+        width: 120px;
+        display: block;
+        margin: 0 auto 8px;
+      }
+
+      h1 {
+        font-size: 18px;
+        color: #fff;
+        margin: 0;
+      }
+    }
+
+    ul[nz-menu] {
+      background: transparent;
+
+      li[nz-menu-item] {
+        a {
+          color: #fff;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+
+.ant-table-thead tr th.ant-table-column-has-sorters:hover {
+  background: orangered;
+}
+
+nz-table {
+  background: white;
+
+
+   width: 100%; 
+  table {
+    width: 100%; 
+  }
+
+  td, th {
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  tr.ant-table-row td {
+    background-color: white;
+  }
+
+  .ant-table-filter-trigger:hover {
+    color: white;
+  }
+
+  .ant-table-filter-trigger.active {
+    color: red;
+  }
+}
+
+nz-table.overflow {
+  overflow-x: auto;
+
+  .ant-spin-container {
+    overflow-x: auto;
+  }
+
+  nz-pagination {
+    position: sticky;
+    left: 0;
+  }
+}
+
+nz-table.sticky {
+  thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+}
+
+nz-pagination.ant-table-pagination.ant-pagination {
+  display: flex;
+  flex-wrap: wrap;
+
+  &:not(.mini) {
+    padding: 0 2rem;
+  }
+
+  &.mini {
+    padding: 0 1rem;
+
+    .ant-pagination-total-text {
+      width: 100%;
+    }
+  }
+}
+
+nz-pagination {
+  &.ant-table-pagination.ant-pagination,
+  &.align-left {
+    ul {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+
+      .ant-pagination-total-text {
+        display: flex;
+        flex-grow: 1;
+        min-height: 24px;
+        height: unset;
+
+        .pagination-total {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+}
+
+.action-and-button {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.ant-table-content table {
+  thead.ant-table-thead > tr {
+    & > th,
+    & > td {
+      font-weight: bold;
+    }
+  }
+
+  .name-col,
+  a {
+    font-weight: bold;
+  }
+
+  a[href^='tel:'] {
+    white-space: nowrap;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

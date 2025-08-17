@@ -42,7 +42,7 @@ referential.User <|.. Tenant
 
 */
 
-const pumlContent: string[] = readFileSync(join(__dirname, '..', 'src', 'models', 'model.puml'))
+const pumlContent: string[] = readFileSync(join(__dirname, '..', '..', 'frontend', 'src', 'models', 'model.puml'))
   .toString()
   .split('\n');
 
@@ -152,7 +152,7 @@ pumlContent.forEach((line) => {
   }
 });
 
-writeFileSync(join(__dirname, '..', 'src', 'models', 'types.ts'), typesContent.join('\n'));
+writeFileSync(join(__dirname, '..', '..', 'frontend', 'src', 'models', 'types.ts'), typesContent.join('\n'));
 
 // eslint-disable-next-line no-console
 console.log("Success: 'src/models/types.ts' re-generated");
